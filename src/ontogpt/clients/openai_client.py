@@ -19,7 +19,7 @@ NUM_RETRIES = 3
 @dataclass
 class OpenAIClient:
     # max_tokens: int = field(default_factory=lambda: 3000)
-    model: str = field(default_factory=lambda: "gpt-3.5-turbo")
+    model: str = field(default_factory=lambda: "gpt35turbo")
     cache_db_path: str = ""
     api_key: str = ""
     interactive: Optional[bool] = None
