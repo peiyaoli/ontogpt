@@ -23,11 +23,14 @@ class OpenAIClient:
     cache_db_path: str = ""
     api_key: str = ""
     interactive: Optional[bool] = None
-
+    
     def __post_init__(self):
         if not self.api_key:
             self.api_key = get_apikey_value("openai")
         openai.api_key = self.api_key
+        openai.api_type = "azure"
+        openai.api_version = "2023-07-01-preview"
+        openai.api_base = "https://ea-ai-gpt.openai.azure.com"
 
     def complete(self, prompt, max_tokens=3000, show_prompt: bool = False, **kwargs) -> str:
         engine = self.model
